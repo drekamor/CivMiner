@@ -1,6 +1,6 @@
 name: Gradle build
 
-#on: [push, pull_request]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -16,8 +16,13 @@ jobs:
           distribution: 'adopt'
       - run: ./gradlew build
 
-      - name: Publish Release
-        uses: actions/create-release@v1
+      - name: Release Tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v1
         with:
-          artifacts: build/libs/*.jar
-          token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: |
+            dist/*.jar
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
