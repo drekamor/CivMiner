@@ -22,3 +22,7 @@ jobs:
         with:
           artifacts: build/libs/*.jar
           token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
+          release-name: Release ${{ github.sha }}
+          distribution: none
