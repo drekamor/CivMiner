@@ -14,7 +14,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-        run: ./gradlew build
+      - run: ./gradlew build
 
       - name: Publish Release
         uses: actions/create-release@v1
