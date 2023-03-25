@@ -36,6 +36,7 @@ public class BotExecutor {
         forwardKey.setPressed(false);
         attackKey.setPressed(false);
         sneakKey.setPressed(false);
+        unsafeMode();
     }
 
     private void unsafeMode(){

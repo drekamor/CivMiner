@@ -15,7 +15,7 @@ public class ConfigInitializer {
 
     public static void init() {
         String stop_text = "You sense debris";
-        String message = "/g Icarus <@284408888109957130>";
+        String message = "I have found debris!";
         Boolean safe_mode = true;
         JsonObject config = new JsonObject();
         config.addProperty("stop_text", stop_text);
