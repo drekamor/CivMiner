@@ -16,7 +16,7 @@ Edit the file followinf instructions in the Config section.
 
 `stop_text` is a text that triggers the bot to stop mining and send chat message. By default is "You sense debris"
 
-`message` is the text that bot sends in chat as it stopps mining
+`message` is the text that bot sends in chat as it stops mining
 
 `safe_mode` whether bot sould use safe mode or not, set *true* or *false*. By default is *true*. Safe mode is slower, but is much less likely to lead to death.
 
