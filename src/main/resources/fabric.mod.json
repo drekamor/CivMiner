@@ -1,15 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "civminer",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "CivMiner",
+  "description": "Advanced (or not really) bot for mining ores on Civ",
   "authors": [
-    "Me!"
+    "Drekamor"
   ],
   "contact": {
-    "homepage": "https://mods.drekamor.dev/civminer",
     "sources": "https://github.com/drekamor/CivMiner"
   },
 
