@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 public class CivMiner implements ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("civ-miner");
 	public static final Gson gson = new Gson();
+	public static BotExecutor botExecutor;
 	public static KeyBinding toggleBot = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 			"Toggle bot",
 			InputUtil.Type.KEYSYM,
@@ -31,7 +32,7 @@ public class CivMiner implements ClientModInitializer {
 	}
 
 	private void init(){
-		BotExecutor botExecutor = new BotExecutor();
+		this.botExecutor = new BotExecutor();
 		ConfigProvider.load();
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (toggleBot.wasPressed()) {

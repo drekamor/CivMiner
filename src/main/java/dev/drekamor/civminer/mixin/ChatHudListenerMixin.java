@@ -1,5 +1,6 @@
 package dev.drekamor.civminer.mixin;
 
+import dev.drekamor.civminer.CivMiner;
 import dev.drekamor.civminer.bot.BotExecutor;
 import dev.drekamor.civminer.config.ConfigProvider;
 import net.minecraft.client.MinecraftClient;
@@ -17,13 +18,14 @@ import java.util.UUID;
 
 @Mixin(ChatHudListener.class)
 public class ChatHudListenerMixin {
-
-    private BotExecutor bot = new BotExecutor();
     @Inject(at = @At("RETURN"), method = "onChatMessage", locals = LocalCapture.CAPTURE_FAILHARD)
     public void ChatListener(MessageType type, Text message, UUID sender, CallbackInfo ci){
         if(message.getString().contains(ConfigProvider.stop_text)){
-            bot.disable();
+            CivMiner.botExecutor.disable();
             MinecraftClient.getInstance().player.sendChatMessage(ConfigProvider.message);
+        }
+        else if(message.getString().contains("Your tool is almost broken")){
+            CivMiner.botExecutor.disable();
         }
     }
 }
